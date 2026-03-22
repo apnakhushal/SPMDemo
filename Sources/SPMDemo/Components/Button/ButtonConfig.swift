@@ -21,13 +21,18 @@ public struct ButtonConfig {
         size: DSButtonSize = .medium,
         isLoading: Bool = false,
         isDisabled: Bool = false,
-        icon: Image? = nil
+        icon: Image? = Image("pressButton", bundle: .myPackage)
     ) {
         self.primaryTitle = primaryTitle
         self.style = style
         self.size = size
         self.isLoading = isLoading
         self.isDisabled = isDisabled
-        self.icon = icon == nil ? Image("pressButton", bundle: .module) : nil
+        self.icon = icon
     }
+}
+
+extension Bundle {
+    /// Expose the internal .module publicly for use in default arguments
+    public static let myPackage: Bundle = .module
 }
