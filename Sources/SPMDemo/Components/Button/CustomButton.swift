@@ -28,6 +28,7 @@ public struct CustomButton: View {
         Button(action: {
             if !config.isDisabled && !config.isLoading {
                 action()
+                showToast.toggle()
             }
         }) {
             content
@@ -40,9 +41,10 @@ public struct CustomButton: View {
                 .padding(.horizontal)
         }
         .disabled(config.isDisabled)
-        .toast(isPresenting: $showToast){
-            //Choose .banner to slide/pop alert from the bottom of the screen
-            AlertToast(displayMode: .banner(.slide), type: .regular, title: "Button Tapped!")
+        .toast(isPresenting: $showToast) {
+            AlertToast(displayMode: .banner(.slide),
+                       type: .regular,
+                       title: "Button Tapped!")
         }
     }
 }
