@@ -50,6 +50,9 @@ private extension CustomButton {
             HStack(spacing: 8) {
                 if let icon = config.icon {
                     icon
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 24, height: 24)
                 }
                 
                 Text(config.primaryTitle)
