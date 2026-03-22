@@ -21,7 +21,7 @@ public struct ButtonConfig {
         size: DSButtonSize = .medium,
         isLoading: Bool = false,
         isDisabled: Bool = false,
-        icon: Image? = nil
+        icon: Image? = Image("pressButton")
     ) {
         self.primaryTitle = primaryTitle
         self.style = style

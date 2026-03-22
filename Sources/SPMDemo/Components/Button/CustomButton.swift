@@ -34,6 +34,7 @@ public struct CustomButton: View {
                 .foregroundColor(foregroundColor)
                 .cornerRadius(theme.cornerRadius)
                 .opacity(config.isDisabled ? 0.6 : 1)
+                .padding(.horizontal)
         }
         .disabled(config.isDisabled)
     }
