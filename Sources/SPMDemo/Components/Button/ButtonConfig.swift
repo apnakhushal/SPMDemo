@@ -21,13 +21,13 @@ public struct ButtonConfig {
         size: DSButtonSize = .medium,
         isLoading: Bool = false,
         isDisabled: Bool = false,
-        icon: Image? = Image("pressButton")
+        icon: Image? = nil
     ) {
         self.primaryTitle = primaryTitle
         self.style = style
         self.size = size
         self.isLoading = isLoading
         self.isDisabled = isDisabled
-        self.icon = icon
+        self.icon = icon == nil ? Image("pressButton", bundle: .module) : nil
     }
 }
