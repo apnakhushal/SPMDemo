@@ -15,11 +15,17 @@ let package = Package(
             targets: ["SPMDemo"]
         ),
     ],
+    dependencies: [
+        .package(url: "https://github.com/elai950/AlertToast", from: "1.3.9")
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "SPMDemo",
+            dependencies: [
+                .product(name: "AlertToast", package: "AlertToast")
+            ],
             resources: [
                 .process("Resources/")
             ]

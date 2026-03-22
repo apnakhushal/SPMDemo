@@ -5,6 +5,7 @@
 //  Created by Khushal on 20/03/2026.
 //
 
+import AlertToast
 import SwiftUI
 
 public struct CustomButton: View {
@@ -13,6 +14,8 @@ public struct CustomButton: View {
     
     @Environment(\.theme) private var theme
     
+    @State private var showToast = false
+
     public init(
         config: ButtonConfig,
         action: @escaping () -> Void
@@ -37,6 +40,10 @@ public struct CustomButton: View {
                 .padding(.horizontal)
         }
         .disabled(config.isDisabled)
+        .toast(isPresenting: $showToast){
+            //Choose .banner to slide/pop alert from the bottom of the screen
+            AlertToast(displayMode: .banner(.slide), type: .regular, title: "Button Tapped!")
+        }
     }
 }
 
