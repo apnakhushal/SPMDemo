@@ -40,10 +40,6 @@ public struct CustomButton: View {
                 .padding(.horizontal)
         }
         .disabled(config.isDisabled)
-        .toast(isPresenting: $showToast){
-            //Choose .banner to slide/pop alert from the bottom of the screen
-            AlertToast(displayMode: .banner(.slide), type: .regular, title: "Button Tapped!")
-        }
     }
 }
 
@@ -64,6 +60,10 @@ private extension CustomButton {
                 
                 Text(config.primaryTitle)
                     .font(config.size.font)
+            }
+            .toast(isPresenting: $showToast){
+                //Choose .banner to slide/pop alert from the bottom of the screen
+                AlertToast(displayMode: .banner(.pop), type: .regular, title: "Button Tapped!")
             }
         }
     }
